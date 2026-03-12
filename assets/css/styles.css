@@ -64,9 +64,9 @@ a:hover {
 
 .brand-logo {
   display: block;
-  height: 48px;
+  height: 22px;
   width: auto;
-  max-width: min(76vw, 520px);
+  max-width: min(42vw, 240px);
 }
 
 .site-nav {
@@ -214,6 +214,6 @@ main {
   }
 
   .brand-logo {
-    height: 40px;
+    height: 18px;
   }
 }
