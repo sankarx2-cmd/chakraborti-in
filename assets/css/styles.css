@@ -57,28 +57,16 @@ a:hover {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   color: var(--text);
   text-decoration: none;
 }
 
-.brand-mark {
-  display: grid;
-  gap: 5px;
-}
-
-.brand-mark span {
+.brand-logo {
   display: block;
-  width: 34px;
-  height: 7px;
-  border-radius: 2px;
-  background: var(--accent);
-}
-
-.brand-word {
-  font-size: clamp(1.25rem, 3vw, 2rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  height: 48px;
+  width: auto;
+  max-width: min(76vw, 520px);
 }
 
 .site-nav {
@@ -223,5 +211,9 @@ main {
 
   .site-nav {
     width: 100%;
+  }
+
+  .brand-logo {
+    height: 40px;
   }
 }
