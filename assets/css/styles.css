@@ -321,6 +321,26 @@ main {
   color: var(--muted);
 }
 
+.story-full {
+  margin-top: 16px;
+}
+
+.story-full h2 {
+  margin-bottom: 14px;
+  font-size: 1.22rem;
+}
+
+.story-body {
+  max-width: 74ch;
+}
+
+.story-body p {
+  margin: 0 0 14px;
+  color: #1e2430;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 14px 0 28px;
