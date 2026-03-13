@@ -333,6 +333,16 @@ main {
   flex-direction: column;
 }
 
+.story-entry-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.story-entry-card:hover {
+  text-decoration: none;
+}
+
 .story-entry-meta {
   margin: 0 0 8px;
   font-size: 0.76rem;
@@ -350,8 +360,12 @@ main {
   margin: 0;
 }
 
-.story-entry .link-row {
+.story-entry-footer {
   margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
 }
 
 .story-entry-upcoming {
@@ -380,9 +394,48 @@ main {
   transform: translateX(1px);
 }
 
+.story-entry-card .story-open {
+  margin-top: 2px;
+}
+
 .story-open[aria-disabled="true"] {
   color: #9f9b9b;
   pointer-events: none;
+}
+
+.story-like-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #6f7782;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.story-like-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #edf1f6;
+  color: #8e98a5;
+  transition:
+    background-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+}
+
+.story-like-count {
+  min-width: 10px;
+  font-size: 1.95rem;
+  font-weight: 600;
+  color: #161c24;
+}
+
+.story-like-indicator.has-likes .story-like-icon {
+  background: #c91b1b;
+  color: #ffffff;
 }
 
 .story-reader-head {
@@ -590,6 +643,10 @@ main {
 
   .story-catalog {
     grid-template-columns: 1fr;
+  }
+
+  .story-entry-footer {
+    align-items: center;
   }
 
   .site-nav {
