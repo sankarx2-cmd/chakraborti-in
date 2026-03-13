@@ -321,24 +321,119 @@ main {
   color: var(--muted);
 }
 
-.story-full {
-  margin-top: 16px;
+.story-library-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
 }
 
-.story-full h2 {
+.story-library-head h2 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+.story-library-head p {
+  margin: 0;
+}
+
+.story-catalog {
+  margin-top: 14px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.story-entry {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-entry-meta {
+  margin: 0 0 8px;
+  font-size: 0.76rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #855565;
+}
+
+.story-entry h2 {
+  margin-bottom: 8px;
+  font-size: 1.08rem;
+}
+
+.story-entry p {
+  margin: 0;
+}
+
+.story-entry-upcoming {
+  background: linear-gradient(180deg, #ffffff 0%, #fcfcfd 100%);
+}
+
+.story-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #dfd4d4;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.83rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: #7a1f1f;
+  background: #fffaf9;
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    background-color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.story-open:hover {
+  text-decoration: none;
+  border-color: #d8a5a5;
+  background: #fff5f4;
+  transform: translateY(-1px);
+}
+
+.story-open[aria-disabled="true"] {
+  color: #9b9393;
+  border-color: #e5e2e2;
+  background: #fbfbfb;
+  pointer-events: none;
+}
+
+.story-reader-head {
   margin-bottom: 14px;
-  font-size: 1.22rem;
 }
 
-.story-body {
-  max-width: 74ch;
+.story-reader-head .page-title {
+  margin-top: 4px;
+  max-width: none;
 }
 
-.story-body p {
-  margin: 0 0 14px;
+.story-reader-head .page-subtitle {
+  max-width: 72ch;
+}
+
+.story-article {
+  padding: 22px;
+}
+
+.story-article p {
+  margin: 0 0 15px;
+  max-width: 76ch;
   color: #1e2430;
   font-size: 1rem;
   line-height: 1.9;
+}
+
+.story-article-nav {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .site-footer {
@@ -352,6 +447,14 @@ main {
   .cards-2,
   .cards-3 {
     grid-template-columns: 1fr;
+  }
+
+  .story-catalog {
+    grid-template-columns: 1fr;
+  }
+
+  .story-library-head {
+    flex-direction: column;
   }
 
   .site-nav {
