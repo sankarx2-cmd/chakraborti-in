@@ -321,22 +321,6 @@ main {
   color: var(--muted);
 }
 
-.story-library-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.story-library-head h2 {
-  margin: 0 0 6px;
-  font-size: 1.1rem;
-}
-
-.story-library-head p {
-  margin: 0;
-}
-
 .story-catalog {
   margin-top: 14px;
   display: grid;
@@ -606,10 +590,6 @@ main {
 
   .story-catalog {
     grid-template-columns: 1fr;
-  }
-
-  .story-library-head {
-    flex-direction: column;
   }
 
   .site-nav {
