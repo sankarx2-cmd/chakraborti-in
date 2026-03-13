@@ -449,12 +449,22 @@ main {
 }
 
 .story-reader-head .page-title {
-  margin-top: 4px;
+  margin: 4px 0 16px;
   max-width: none;
 }
 
 .story-reader-head .page-subtitle {
+  margin-top: 0;
   max-width: 72ch;
+  line-height: 1.72;
+}
+
+.story-reader-head .link-row {
+  margin-top: 16px;
+}
+
+.story-reader-head .story-title-small {
+  font-size: clamp(0.93rem, 1.6vw, 1.18rem);
 }
 
 .story-article {
