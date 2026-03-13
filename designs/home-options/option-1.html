@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage Option 1 · Aurora White</title>
+    <style>
+      :root {
+        --bg-1: #f8fbff;
+        --bg-2: #f2f5fa;
+        --text: #0d172b;
+        --muted: #4f5f78;
+        --line: #d4dce8;
+        --accent: #ce1d25;
+        --nav: #53617a;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background: linear-gradient(155deg, var(--bg-1) 0%, var(--bg-2) 100%);
+        color: var(--text);
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        z-index: -1;
+        border-radius: 999px;
+        pointer-events: none;
+      }
+      body::before {
+        width: 460px;
+        height: 460px;
+        left: -180px;
+        top: -170px;
+        background: radial-gradient(circle, rgba(22, 88, 174, 0.16) 0%, rgba(22, 88, 174, 0) 72%);
+        animation: floatA 20s ease-in-out infinite alternate;
+      }
+      body::after {
+        width: 420px;
+        height: 420px;
+        right: -150px;
+        bottom: -170px;
+        background: radial-gradient(circle, rgba(206, 29, 37, 0.14) 0%, rgba(206, 29, 37, 0) 74%);
+        animation: floatB 24s ease-in-out infinite alternate;
+      }
+      .container {
+        width: min(1420px, 92vw);
+        margin: 0 auto;
+      }
+      .site-header {
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(7px);
+      }
+      .header-row {
+        min-height: 86px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .brand-logo {
+        height: 20px;
+        width: auto;
+      }
+      .site-nav {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 8ch;
+        row-gap: 10px;
+      }
+      .site-nav a {
+        text-decoration: none;
+        color: var(--nav);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: 0.8rem;
+        position: relative;
+        padding: 4px 0;
+      }
+      .site-nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -6px;
+        height: 2px;
+        background: var(--accent);
+        transform: scaleX(0.35);
+        transform-origin: left center;
+        opacity: 0;
+        transition: transform 220ms ease, opacity 140ms ease;
+      }
+      .site-nav a.active,
+      .site-nav a:hover { color: #192843; }
+      .site-nav a.active::after,
+      .site-nav a:hover::after {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+      .home-main {
+        min-height: calc(100vh - 165px);
+        display: flex;
+        align-items: center;
+      }
+      .hero {
+        width: min(1420px, 92vw);
+        margin: 0 auto;
+        text-align: center;
+        padding: 5vh 0 11vh;
+      }
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(2rem, 4.5vw, 4.05rem);
+        line-height: 1.18;
+        letter-spacing: -0.022em;
+        color: var(--text);
+        animation: rise 700ms ease both;
+      }
+      .hero p {
+        margin: 62px auto 0;
+        max-width: 40ch;
+        font-size: clamp(1.24rem, 2.3vw, 2rem);
+        line-height: 1.36;
+        color: var(--muted);
+        animation: rise 920ms ease both;
+      }
+      .site-footer {
+        border-top: 1px solid var(--line);
+        color: #576786;
+        background: rgba(255, 255, 255, 0.5);
+      }
+      .site-footer .container {
+        padding: 18px 0 20px;
+        text-align: center;
+        font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+      }
+      @keyframes rise {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes floatA {
+        from { transform: translate3d(0, 0, 0); }
+        to { transform: translate3d(25px, 18px, 0); }
+      }
+      @keyframes floatB {
+        from { transform: translate3d(0, 0, 0); }
+        to { transform: translate3d(-22px, -16px, 0); }
+      }
+      @media (max-width: 980px) {
+        .header-row { padding: 14px 0 12px; }
+        .site-nav { width: 100%; column-gap: 4ch; }
+        .hero p { margin-top: 40px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a href="/"><img class="brand-logo" src="/chakraborti-logo.png" alt="Chakraborti" /></a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="/family/">About Us</a>
+          <a href="/stories/" class="active">Our Stories</a>
+          <a href="/memoirs/">Research &amp; Articles</a>
+          <a href="/apps/">Apps &amp; Tools</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="home-main">
+      <section class="hero">
+        <h1>We are time travelling lump of stardust. Just like you!</h1>
+        <p>Welcome to our family's home on cyberspace</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">&copy; Chakraborti Family, 2026 | We do not collect any data.</div>
+    </footer>
+  </body>
+</html>
