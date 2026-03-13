@@ -101,7 +101,7 @@ a:hover {
 .site-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 28px;
 }
 
 .site-nav a {
@@ -878,7 +878,7 @@ main {
 
   .site-nav {
     width: 100%;
-    gap: 12px;
+    gap: 24px;
   }
 
   .brand-logo {
