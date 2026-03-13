@@ -101,7 +101,8 @@ a:hover {
 .site-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 28px;
+  column-gap: 8ch;
+  row-gap: 10px;
 }
 
 .site-nav a {
@@ -878,7 +879,8 @@ main {
 
   .site-nav {
     width: 100%;
-    gap: 24px;
+    column-gap: 8ch;
+    row-gap: 10px;
   }
 
   .brand-logo {
