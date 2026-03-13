@@ -34,10 +34,13 @@
     return;
   }
 
-  var likeCountKey = "chakraborti_story_" + storyId + "_likes";
-  var likedKey = "chakraborti_story_" + storyId + "_liked";
-  var commentsKey = "chakraborti_story_" + storyId + "_comments";
+  var apiBase = "/api/story/" + encodeURIComponent(storyId);
+  var deviceIdKey = "chakraborti_story_device_id_v1";
   var currentChallengeAnswer = 0;
+  var state = {
+    likeCount: 0,
+    likedByDevice: false
+  };
 
   function safeGet(key, fallback) {
     try {
@@ -57,65 +60,52 @@
     }
   }
 
-  function readLikeCount() {
-    var raw = safeGet(likeCountKey, "0");
-    var parsed = Number.parseInt(raw, 10);
-    if (!Number.isFinite(parsed) || parsed < 0) {
-      return 0;
+  function generateDeviceId() {
+    if (window.crypto && typeof window.crypto.randomUUID === "function") {
+      return window.crypto.randomUUID();
     }
-    return parsed;
+    return "dev_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 10);
   }
 
-  function readLiked() {
-    return safeGet(likedKey, "0") === "1";
+  function normalizeDeviceId(raw) {
+    if (typeof raw !== "string") {
+      return "";
+    }
+    var cleaned = raw.replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 120);
+    return cleaned.length >= 8 ? cleaned : "";
   }
 
-  function writeLikeCount(count) {
-    safeSet(likeCountKey, String(count));
-  }
+  function getDeviceId() {
+    var existing = normalizeDeviceId(safeGet(deviceIdKey, ""));
+    if (existing) {
+      return existing;
+    }
 
-  function writeLiked(liked) {
-    safeSet(likedKey, liked ? "1" : "0");
+    var fresh = normalizeDeviceId(generateDeviceId());
+    if (!fresh) {
+      fresh = "dev_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 10);
+    }
+    safeSet(deviceIdKey, fresh);
+    return fresh;
   }
 
   function likeLabel(count) {
     return count === 1 ? "1 like" : count + " likes";
   }
 
-  function refreshLikeUi() {
-    var count = readLikeCount();
-    var liked = readLiked();
-
-    likeButton.classList.toggle("is-liked", liked);
-    likeButton.setAttribute("aria-pressed", liked ? "true" : "false");
-    likeButton.textContent = liked ? "👍 Liked" : "👍 Like";
-    likeCountEl.textContent = likeLabel(count);
-  }
-
-  function readComments() {
-    var raw = safeGet(commentsKey, "[]");
-    try {
-      var parsed = JSON.parse(raw);
-      if (!Array.isArray(parsed)) {
-        return [];
-      }
-      return parsed
-        .filter(function (entry) {
-          return (
-            entry &&
-            typeof entry.name === "string" &&
-            typeof entry.comment === "string" &&
-            typeof entry.createdAt === "string"
-          );
-        })
-        .slice(0, 200);
-    } catch (err) {
-      return [];
+  function toCount(value) {
+    var parsed = Number.parseInt(value, 10);
+    if (!Number.isFinite(parsed) || parsed < 0) {
+      return 0;
     }
+    return parsed;
   }
 
-  function writeComments(comments) {
-    safeSet(commentsKey, JSON.stringify(comments));
+  function refreshLikeUi() {
+    likeButton.classList.toggle("is-liked", state.likedByDevice);
+    likeButton.setAttribute("aria-pressed", state.likedByDevice ? "true" : "false");
+    likeButton.textContent = state.likedByDevice ? "👍 Liked" : "👍 Like";
+    likeCountEl.textContent = likeLabel(state.likeCount);
   }
 
   function formatTimestamp(iso) {
@@ -144,18 +134,18 @@
     challengeInput.value = "";
   }
 
-  function renderComments() {
-    var comments = readComments();
+  function renderComments(comments) {
+    var safeComments = Array.isArray(comments) ? comments : [];
     commentsList.innerHTML = "";
 
-    if (comments.length === 0) {
+    if (safeComments.length === 0) {
       emptyComments.hidden = false;
       return;
     }
 
     emptyComments.hidden = true;
 
-    comments.forEach(function (entry) {
+    safeComments.forEach(function (entry) {
       var item = document.createElement("article");
       item.className = "comment-item";
 
@@ -164,16 +154,16 @@
 
       var author = document.createElement("strong");
       author.className = "comment-author";
-      author.textContent = entry.name;
+      author.textContent = typeof entry.name === "string" ? entry.name : "Anonymous";
 
       var time = document.createElement("time");
       time.className = "comment-time";
-      time.dateTime = entry.createdAt;
+      time.dateTime = typeof entry.createdAt === "string" ? entry.createdAt : "";
       time.textContent = formatTimestamp(entry.createdAt);
 
       var text = document.createElement("p");
       text.className = "comment-text";
-      text.textContent = entry.comment;
+      text.textContent = typeof entry.comment === "string" ? entry.comment : "";
 
       meta.appendChild(author);
       meta.appendChild(time);
@@ -183,22 +173,73 @@
     });
   }
 
-  likeButton.addEventListener("click", function () {
-    var count = readLikeCount();
-    var liked = readLiked();
-
-    if (liked) {
-      count = Math.max(0, count - 1);
-    } else {
-      count += 1;
+  async function parseJsonResponse(response) {
+    var text = await response.text();
+    if (!text) {
+      return {};
     }
+    try {
+      return JSON.parse(text);
+    } catch (err) {
+      throw new Error("Invalid server response");
+    }
+  }
 
-    writeLikeCount(count);
-    writeLiked(!liked);
+  async function fetchJson(path, options) {
+    var response = await fetch(path, options || {});
+    var data = await parseJsonResponse(response);
+    if (!response.ok) {
+      var serverMessage = data && typeof data.error === "string" ? data.error : "";
+      throw new Error(serverMessage || "Request failed");
+    }
+    return data;
+  }
+
+  async function loadStoryState() {
+    var data = await fetchJson(apiBase + "?deviceId=" + encodeURIComponent(deviceId), {
+      method: "GET",
+      headers: {
+        Accept: "application/json"
+      }
+    });
+
+    state.likeCount = toCount(data.likeCount);
+    state.likedByDevice = Boolean(data.likedByDevice);
     refreshLikeUi();
+    renderComments(data.comments);
+  }
+
+  async function setLike(nextLikeState) {
+    var data = await fetchJson(apiBase + "/like", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        deviceId: deviceId,
+        like: nextLikeState
+      })
+    });
+
+    state.likeCount = toCount(data.likeCount);
+    state.likedByDevice = Boolean(data.likedByDevice);
+    refreshLikeUi();
+  }
+
+  likeButton.addEventListener("click", async function () {
+    likeButton.disabled = true;
+    try {
+      await setLike(!state.likedByDevice);
+      feedback.textContent = "";
+    } catch (err) {
+      feedback.textContent = "Unable to update like right now. Please try again.";
+    } finally {
+      likeButton.disabled = false;
+    }
   });
 
-  commentForm.addEventListener("submit", function (event) {
+  commentForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
     var name = nameInput.value.trim();
@@ -217,20 +258,43 @@
       return;
     }
 
-    var comments = readComments();
-    comments.unshift({
-      name: name,
-      comment: comment,
-      createdAt: new Date().toISOString()
-    });
+    var submitButton = commentForm.querySelector("button[type='submit']");
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
 
-    writeComments(comments);
-    nameInput.value = "";
-    commentInput.value = "";
-    setNewChallenge();
-    feedback.textContent = "Thanks! Your comment has been added.";
-    renderComments();
-    nameInput.focus();
+    try {
+      await fetchJson(apiBase + "/comments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          comment: comment
+        })
+      });
+
+      nameInput.value = "";
+      commentInput.value = "";
+      setNewChallenge();
+
+      try {
+        await loadStoryState();
+        feedback.textContent = "Thanks! Your comment has been added.";
+      } catch (refreshErr) {
+        feedback.textContent = "Comment saved. Please refresh to load the latest comments.";
+      }
+
+      nameInput.focus();
+    } catch (err) {
+      feedback.textContent = err && err.message ? err.message : "Unable to post comment right now.";
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+      }
+    }
   });
 
   challengeRefresh.addEventListener("click", function () {
@@ -238,7 +302,11 @@
     challengeInput.focus();
   });
 
+  var deviceId = getDeviceId();
   setNewChallenge();
-  refreshLikeUi();
-  renderComments();
+  loadStoryState().catch(function () {
+    refreshLikeUi();
+    renderComments([]);
+    feedback.textContent = "Could not load likes and comments from the server.";
+  });
 })();

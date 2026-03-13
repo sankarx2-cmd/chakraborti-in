@@ -6,35 +6,67 @@
     return;
   }
 
-  function safeGet(key, fallback) {
-    try {
-      var value = window.localStorage.getItem(key);
-      return value === null ? fallback : value;
-    } catch (err) {
-      return fallback;
-    }
-  }
-
-  function readLikeCount(storyId) {
-    var raw = safeGet("chakraborti_story_" + storyId + "_likes", "0");
-    var count = Number.parseInt(raw, 10);
-    if (!Number.isFinite(count) || count < 0) {
-      return 0;
-    }
-    return count;
-  }
-
-  cards.forEach(function (card) {
-    var storyId = card.getAttribute("data-story-id");
+  function applyLikeCount(card, likes) {
     var indicator = card.querySelector("[data-story-like-indicator]");
     var countEl = card.querySelector("[data-story-like-count]");
-    if (!storyId || !indicator || !countEl) {
+    if (!indicator || !countEl) {
       return;
     }
 
-    var likes = readLikeCount(storyId);
-    countEl.textContent = String(likes);
-    indicator.classList.toggle("has-likes", likes > 0);
-    indicator.setAttribute("aria-label", likes === 1 ? "1 like" : likes + " likes");
+    var safeCount = Number.isFinite(likes) && likes > 0 ? likes : 0;
+    countEl.textContent = String(safeCount);
+    indicator.classList.toggle("has-likes", safeCount > 0);
+    indicator.setAttribute("aria-label", safeCount === 1 ? "1 like" : safeCount + " likes");
+  }
+
+  async function loadLikeCounts() {
+    var ids = Array.from(cards)
+      .map(function (card) {
+        return card.getAttribute("data-story-id");
+      })
+      .filter(Boolean);
+
+    if (!ids.length) {
+      return;
+    }
+
+    var response = await fetch("/api/stories?ids=" + encodeURIComponent(ids.join(",")), {
+      method: "GET",
+      headers: {
+        "Accept": "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error("Unable to load story like counts");
+    }
+
+    var data = await response.json();
+    var likeMap = {};
+
+    if (data && Array.isArray(data.stories)) {
+      data.stories.forEach(function (entry) {
+        if (!entry || typeof entry.storyId !== "string") {
+          return;
+        }
+        var count = Number.parseInt(entry.likeCount, 10);
+        likeMap[entry.storyId] = Number.isFinite(count) && count > 0 ? count : 0;
+      });
+    }
+
+    cards.forEach(function (card) {
+      var storyId = card.getAttribute("data-story-id") || "";
+      applyLikeCount(card, likeMap[storyId] || 0);
+    });
+  }
+
+  cards.forEach(function (card) {
+    applyLikeCount(card, 0);
+  });
+
+  loadLikeCounts().catch(function () {
+    cards.forEach(function (card) {
+      applyLikeCount(card, 0);
+    });
   });
 })();
