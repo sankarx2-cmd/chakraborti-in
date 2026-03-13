@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>সাইকেল · Stories · Chakraborti</title>
-    <link rel="stylesheet" href="/assets/css/styles.css?v=7" />
+    <link rel="stylesheet" href="/assets/css/styles.css?v=8" />
   </head>
-  <body>
+  <body data-story-id="saikel">
     <header class="site-header">
       <div class="container header-row">
         <a class="brand" href="/">
@@ -55,6 +55,47 @@
           <p>হোস্টেল থেকে বেরুনোর পর এই সাইকেলটাই ছিল আমার কাছে স্বাধীনতার প্রথম স্বাদ।</p>
         </article>
 
+        <section class="panel story-engagement" aria-label="Story likes">
+          <h2>Like this story</h2>
+          <button id="like-button" class="like-button" type="button" aria-pressed="false">👍 Like</button>
+          <p id="like-count" class="like-count">0 likes</p>
+        </section>
+
+        <section class="panel story-comment-form" aria-label="Add a comment">
+          <h2>Leave a comment</h2>
+          <form id="comment-form" class="comment-form" novalidate>
+            <label for="commenter-name">Your name</label>
+            <input
+              id="commenter-name"
+              class="comment-input"
+              name="commenter-name"
+              type="text"
+              maxlength="80"
+              autocomplete="name"
+              required
+            />
+
+            <label for="comment-text">Your comment</label>
+            <textarea
+              id="comment-text"
+              class="comment-textarea"
+              name="comment-text"
+              rows="4"
+              maxlength="3000"
+              required
+            ></textarea>
+
+            <button class="comment-submit" type="submit">Post comment</button>
+          </form>
+          <p id="comment-feedback" class="note comment-feedback" aria-live="polite"></p>
+        </section>
+
+        <section class="panel story-comments" aria-label="Comments">
+          <h2>Comments</h2>
+          <div id="comments-list" class="comments-list"></div>
+          <p id="comments-empty" class="note">No comments yet. Be the first to comment.</p>
+        </section>
+
         <section class="story-article-nav" aria-label="Story navigation">
           <a class="story-open" href="/stories/">All stories</a>
           <span class="note">Next story coming soon</span>
@@ -65,5 +106,6 @@
     <footer class="site-footer">
       <div class="container">Chakraborti Family · Stories</div>
     </footer>
+    <script src="/assets/js/story-interactions.js?v=1" defer></script>
   </body>
 </html>
