@@ -225,11 +225,12 @@
     });
 
     writeComments(comments);
+    nameInput.value = "";
     commentInput.value = "";
     setNewChallenge();
     feedback.textContent = "Thanks! Your comment has been added.";
     renderComments();
-    commentInput.focus();
+    nameInput.focus();
   });
 
   challengeRefresh.addEventListener("click", function () {
