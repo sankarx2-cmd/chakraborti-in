@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stories · Chakraborti</title>
-    <link rel="stylesheet" href="/assets/css/styles.css?v=11" />
+    <link rel="stylesheet" href="/assets/css/styles.css?v=13" />
   </head>
   <body>
     <header class="site-header">
@@ -29,8 +29,15 @@
           <p class="page-subtitle">Choose a story from the library below and open it in dedicated reading view.</p>
         </section>
 
+        <section class="story-language-filter" aria-label="Story language filter">
+          <div class="story-language-tabs" role="tablist" aria-label="Story language" data-story-language-tabs data-default-language="english">
+            <button class="story-language-tab" type="button" role="tab" data-story-language-tab="english" aria-selected="true">English</button>
+            <button class="story-language-tab" type="button" role="tab" data-story-language-tab="bengali" aria-selected="false">Bengali</button>
+          </div>
+        </section>
+
         <section class="story-catalog" aria-label="Story list">
-          <a class="card story-entry story-entry-card" href="/stories/saikel/" data-story-id="saikel">
+          <a class="card story-entry story-entry-card" href="/stories/saikel/" data-story-id="saikel" data-story-language="bengali">
             <h2>সাইকেল</h2>
             <p>হোস্টেল থেকে বেরুনোর পর এই সাইকেলটাই ছিল আমার কাছে স্বাধীনতার প্রথম স্বাদ</p>
             <div class="story-entry-footer">
@@ -42,7 +49,7 @@
             </div>
           </a>
 
-          <a class="card story-entry story-entry-card" href="/stories/story-2/" data-story-id="story-2">
+          <a class="card story-entry story-entry-card" href="/stories/story-2/" data-story-id="story-2" data-story-language="bengali">
             <h2>রামকৃষ্ণ মিশন</h2>
             <p>টাকা মাটি মাটি টাকা | যত মত তত পথ | শিব জ্ঞানে জীব সেবা</p>
             <div class="story-entry-footer">
@@ -54,7 +61,7 @@
             </div>
           </a>
 
-          <a class="card story-entry story-entry-card" href="/stories/story-3/" data-story-id="story-3">
+          <a class="card story-entry story-entry-card" href="/stories/story-3/" data-story-id="story-3" data-story-language="bengali">
             <h2>বস</h2>
             <p>চাকরি করতে এসে ভালো শিক্ষক যদি বস বা সহকর্মী হিসেবে পাওয়া যায় ব্যাপারটা আর অতটা কঠিন থাকে না</p>
             <div class="story-entry-footer">
@@ -66,12 +73,14 @@
             </div>
           </a>
         </section>
+        <p class="note story-language-empty" data-story-language-empty hidden>No stories in this language yet.</p>
       </div>
     </main>
 
     <footer class="site-footer">
       <div class="container">Chakraborti Family · Stories</div>
     </footer>
-    <script src="/assets/js/stories-library.js?v=3" defer></script>
+    <script src="/assets/js/stories-library.js?v=4" defer></script>
+    <script src="/assets/js/story-language-tabs.js?v=1" defer></script>
   </body>
 </html>

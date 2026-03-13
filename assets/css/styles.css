@@ -321,11 +321,66 @@ main {
   color: var(--muted);
 }
 
+.story-language-filter {
+  margin-top: 6px;
+}
+
+.story-language-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.story-language-tab {
+  border: 0;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    color var(--dur-fast) var(--ease),
+    background-color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.story-language-tab:hover {
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+.story-language-tab:focus-visible {
+  outline: 2px solid rgba(201, 27, 27, 0.28);
+  outline-offset: 1px;
+}
+
+.story-language-tab[aria-selected="true"] {
+  color: #ffffff;
+  background: var(--accent);
+}
+
 .story-catalog {
   margin-top: 14px;
   display: grid;
   gap: 14px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.story-language-empty {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  background: #fcfdff;
 }
 
 .story-entry {
