@@ -416,21 +416,27 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 999px;
-  background: #edf1f6;
-  color: #8e98a5;
+  background: #d6dde7;
+  color: #ffffff;
   transition:
     background-color var(--dur-fast) var(--ease),
     color var(--dur-fast) var(--ease);
 }
 
+.story-like-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: #ffffff;
+}
+
 .story-like-count {
   min-width: 10px;
-  font-size: 1.95rem;
-  font-weight: 600;
-  color: #161c24;
+  font-size: 0.86rem;
+  font-weight: 400;
+  color: #7a1f1f;
 }
 
 .story-like-indicator.has-likes .story-like-icon {
