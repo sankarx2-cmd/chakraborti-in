@@ -366,6 +366,10 @@ main {
   margin: 0;
 }
 
+.story-entry .link-row {
+  margin-top: 14px;
+}
+
 .story-entry-upcoming {
   background: linear-gradient(180deg, #ffffff 0%, #fcfcfd 100%);
 }
@@ -373,32 +377,27 @@ main {
 .story-open {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  border: 1px solid #dfd4d4;
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 0.83rem;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font-size: 0.86rem;
   letter-spacing: 0.02em;
   text-decoration: none;
   color: #7a1f1f;
-  background: #fffaf9;
+  background: transparent;
   transition:
-    border-color var(--dur-fast) var(--ease),
-    background-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease),
     transform var(--dur-fast) var(--ease);
 }
 
 .story-open:hover {
-  text-decoration: none;
-  border-color: #d8a5a5;
-  background: #fff5f4;
-  transform: translateY(-1px);
+  color: #5f1111;
+  transform: translateX(1px);
 }
 
 .story-open[aria-disabled="true"] {
-  color: #9b9393;
-  border-color: #e5e2e2;
-  background: #fbfbfb;
+  color: #9f9b9b;
   pointer-events: none;
 }
 
