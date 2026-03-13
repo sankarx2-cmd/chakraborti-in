@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>সাইকেল · Stories · Chakraborti</title>
-    <link rel="stylesheet" href="/assets/css/styles.css?v=9" />
+    <link rel="stylesheet" href="/assets/css/styles.css?v=10" />
   </head>
   <body data-story-id="saikel">
     <header class="site-header">
@@ -85,6 +85,27 @@
               required
             ></textarea>
 
+            <div class="comment-challenge">
+              <label id="comment-challenge-label" for="comment-challenge-answer">Human check</label>
+              <div class="comment-challenge-controls">
+                <input
+                  id="comment-challenge-answer"
+                  class="comment-input comment-challenge-input"
+                  name="comment-challenge-answer"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  required
+                />
+                <button
+                  id="comment-challenge-refresh"
+                  class="comment-challenge-refresh"
+                  type="button"
+                  aria-label="Generate a new challenge"
+                >↻</button>
+              </div>
+            </div>
+
             <button class="comment-submit" type="submit">Post comment</button>
           </form>
           <p id="comment-feedback" class="note comment-feedback" aria-live="polite"></p>
@@ -106,6 +127,6 @@
     <footer class="site-footer">
       <div class="container">Chakraborti Family · Stories</div>
     </footer>
-    <script src="/assets/js/story-interactions.js?v=1" defer></script>
+    <script src="/assets/js/story-interactions.js?v=2" defer></script>
   </body>
 </html>

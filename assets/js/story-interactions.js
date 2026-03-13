@@ -11,6 +11,9 @@
   var commentForm = document.getElementById("comment-form");
   var nameInput = document.getElementById("commenter-name");
   var commentInput = document.getElementById("comment-text");
+  var challengeLabel = document.getElementById("comment-challenge-label");
+  var challengeInput = document.getElementById("comment-challenge-answer");
+  var challengeRefresh = document.getElementById("comment-challenge-refresh");
   var commentsList = document.getElementById("comments-list");
   var emptyComments = document.getElementById("comments-empty");
   var feedback = document.getElementById("comment-feedback");
@@ -21,6 +24,9 @@
     !commentForm ||
     !nameInput ||
     !commentInput ||
+    !challengeLabel ||
+    !challengeInput ||
+    !challengeRefresh ||
     !commentsList ||
     !emptyComments ||
     !feedback
@@ -31,6 +37,7 @@
   var likeCountKey = "chakraborti_story_" + storyId + "_likes";
   var likedKey = "chakraborti_story_" + storyId + "_liked";
   var commentsKey = "chakraborti_story_" + storyId + "_comments";
+  var currentChallengeAnswer = 0;
 
   function safeGet(key, fallback) {
     try {
@@ -125,6 +132,18 @@
     });
   }
 
+  function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function setNewChallenge() {
+    var left = randomInt(2, 9);
+    var right = randomInt(1, 8);
+    currentChallengeAnswer = left + right;
+    challengeLabel.textContent = "Human check: " + left + " + " + right + " = ?";
+    challengeInput.value = "";
+  }
+
   function renderComments() {
     var comments = readComments();
     commentsList.innerHTML = "";
@@ -184,9 +203,17 @@
 
     var name = nameInput.value.trim();
     var comment = commentInput.value.trim();
+    var challengeValue = Number.parseInt(challengeInput.value.trim(), 10);
 
     if (!name || !comment) {
       feedback.textContent = "Please enter both your name and comment.";
+      return;
+    }
+
+    if (!Number.isFinite(challengeValue) || challengeValue !== currentChallengeAnswer) {
+      feedback.textContent = "Please solve the human check correctly.";
+      setNewChallenge();
+      challengeInput.focus();
       return;
     }
 
@@ -199,11 +226,18 @@
 
     writeComments(comments);
     commentInput.value = "";
+    setNewChallenge();
     feedback.textContent = "Thanks! Your comment has been added.";
     renderComments();
     commentInput.focus();
   });
 
+  challengeRefresh.addEventListener("click", function () {
+    setNewChallenge();
+    challengeInput.focus();
+  });
+
+  setNewChallenge();
   refreshLikeUi();
   renderComments();
 })();

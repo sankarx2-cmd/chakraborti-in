@@ -552,6 +552,42 @@ main {
   line-height: 1.62;
 }
 
+.comment-challenge {
+  margin-top: 2px;
+}
+
+.comment-challenge-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.comment-challenge-input {
+  max-width: 140px;
+}
+
+.comment-challenge-refresh {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #d8cccc;
+  border-radius: 8px;
+  background: #fff8f8;
+  color: #6d1717;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    background-color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.comment-challenge-refresh:hover {
+  border-color: #cda8a8;
+  background: #fff2f2;
+  transform: translateY(-1px);
+}
+
 .comment-submit {
   justify-self: start;
   margin-top: 2px;
