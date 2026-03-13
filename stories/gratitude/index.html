@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gratitude · Stories · Chakraborti</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=18" />
+  </head>
+  <body data-story-id="gratitude">
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="/">
+          <img class="brand-logo" src="/chakraborti-logo.png" alt="Chakraborti" />
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="/family/">About Us</a>
+          <a aria-current="page" href="/stories/">Our Stories</a>
+          <a href="/memoirs/">Research &amp; Articles</a>
+          <a href="/apps/">Apps &amp; Tools</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="panel story-reader-head">
+          <h1 class="page-title story-title-small">Gratitude</h1>
+          <p class="page-subtitle">All of us have one such angel!</p>
+          <p class="link-row"><a class="story-open" href="/stories/">← Back to story library</a></p>
+        </section>
+
+        <article class="panel story-article">
+          <p>When I was in seventh grade, I was, literally, malnourished. This troubled my teachers at school and my parents at home. Needless to mention that this gave me a lot of trouble as well. When a couple of times my parents were called to school, it was about me not eating enough. It was not like they werent feeding me. Just that I was a frugal eater and lived on half a meal.</p>
+          <p>They found a good use of the lack of gravity. Before the annual sports day they would put me in the gymnastics team to climb on top of the pyramid. Every time the pyramid breaks while practicing, it was my job to take the fall. It was at least better to be on top of the heap.</p>
+          <p>One of our teachers, Shushil-da was especially troubled by my health (Sushil Roy - we had a custom of calling all our teachers dada - hence Sushil-da). He would call me and say, 'Sankar, with this kind of health how will you work for 8-9 hours a day? Your boss will throw you out'. Losing my job due to poor health was least of my problems in seventh. But thanks to him I developed this fear of losing my job even when I didnt have one.</p>
+          <p>I would avoid Sushilda like crazy. If I saw him walking in the distance, I would turn around. But the school was at a godforsaken place. Neither of us could leave the boundaries. And we had to eat at the same dining hall. So he would eventually catch hold of me and more scolding will follow.</p>
+          <p>After a while he took charge of my health. He would come to the hostel early morning at 4:30 or 5:00 am even before morning bells rang. Wake me up and ask me to run around the school. It didnt matter if it was winter when usually the morning temp was 4 degrees. Celcius.</p>
+          <p>After the run he would give me a few raisins and almonds which he would bring with him. Then a session of yoga will follow.</p>
+          <p>After yoga, he would teach English. My English was terrible. Getting the genders right was impossible. I didnt know my verbs and adverbs. And he was like not knowing the language will let the nation plunge into recession.</p>
+          <p>He would insist I write simple sentences over compound and complex sentences. And avoid fancy words. So, I learnt a "tool" version of the language.</p>
+          <p>Then came the worst part. He would remove a few Neem leaves from his bag and ask me to chew. Neem leaves are not exactly donuts. Enough to make a child cry.</p>
+          <p>So, you can imagine how I felt about this man. Despite the fact that he never beat me, I felt he is after my life.</p>
+          <p>Then, I got a job and came to Mumbai after completing education. I would be alone. And some days were really tough. I would remember him and miss him on such rainy days.</p>
+          <p>He wasnt a monk. But he dedicated his life to children like me. Not the brightest and healthy ones. The ones that needed him. He was like a mother and father to the abandoned kids. All this without any financial gain.</p>
+          <p>I never fell sick till he was around. He was trying to prepare me for the real world. All of us have one such angel. They come in tough packages.</p>
+        </article>
+
+        <section class="panel story-engagement" aria-label="Story likes">
+          <h2>Like this story</h2>
+          <button id="like-button" class="like-button" type="button" aria-pressed="false">👍 Like</button>
+          <p id="like-count" class="like-count">0 likes</p>
+        </section>
+
+        <section class="panel story-comment-form" aria-label="Add a comment">
+          <h2>Leave a comment</h2>
+          <form id="comment-form" class="comment-form" novalidate>
+            <label for="commenter-name">Your name</label>
+            <input
+              id="commenter-name"
+              class="comment-input"
+              name="commenter-name"
+              type="text"
+              maxlength="80"
+              autocomplete="name"
+              required
+            />
+
+            <label for="comment-text">Your comment</label>
+            <textarea
+              id="comment-text"
+              class="comment-textarea"
+              name="comment-text"
+              rows="4"
+              maxlength="3000"
+              required
+            ></textarea>
+
+            <div class="comment-challenge">
+              <label id="comment-challenge-label" for="comment-challenge-answer">Human check</label>
+              <div class="comment-challenge-controls">
+                <input
+                  id="comment-challenge-answer"
+                  class="comment-input comment-challenge-input"
+                  name="comment-challenge-answer"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  required
+                />
+                <button
+                  id="comment-challenge-refresh"
+                  class="comment-challenge-refresh"
+                  type="button"
+                  aria-label="Generate a new challenge"
+                >↻</button>
+              </div>
+            </div>
+
+            <button class="comment-submit" type="submit">Post comment</button>
+          </form>
+          <p id="comment-feedback" class="note comment-feedback" aria-live="polite"></p>
+        </section>
+
+        <section class="panel story-comments" aria-label="Comments">
+          <h2>Comments</h2>
+          <div id="comments-list" class="comments-list"></div>
+          <p id="comments-empty" class="note">No comments yet. Be the first to comment.</p>
+        </section>
+
+        <section class="story-article-nav" aria-label="Story navigation">
+          <a class="story-open" href="/stories/">All stories</a>
+          <span class="note">Next story coming soon</span>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">Chakraborti Family · Stories</div>
+    </footer>
+    <script src="/assets/js/story-interactions.js?v=5" defer></script>
+  </body>
+</html>
