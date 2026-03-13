@@ -8,6 +8,9 @@
   --accent-soft: rgba(201, 27, 27, 0.1);
   --link: #8b1616;
   --radius: 12px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 140ms;
+  --dur-med: 220ms;
 }
 
 * {
@@ -43,11 +46,16 @@ body::before {
 
 a {
   color: var(--link);
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.14em;
+  transition:
+    color var(--dur-fast) var(--ease),
+    text-decoration-color var(--dur-fast) var(--ease);
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration-color: currentColor;
 }
 
 .container {
@@ -74,6 +82,7 @@ a:hover {
   align-items: center;
   color: var(--text);
   text-decoration: none;
+  transition: opacity var(--dur-fast) var(--ease);
 }
 
 .brand-logo {
@@ -81,6 +90,12 @@ a:hover {
   height: 20px;
   width: auto;
   max-width: min(44vw, 230px);
+  transition: transform var(--dur-med) var(--ease), filter var(--dur-med) var(--ease);
+}
+
+.brand:hover .brand-logo {
+  transform: translateY(-1px);
+  filter: saturate(1.02);
 }
 
 .site-nav {
@@ -99,6 +114,7 @@ a:hover {
   text-transform: uppercase;
   color: var(--muted);
   text-decoration: none;
+  transition: color var(--dur-fast) var(--ease);
 }
 
 .site-nav a::after {
@@ -109,13 +125,19 @@ a:hover {
   bottom: -3px;
   height: 2px;
   border-radius: 2px;
-  background: transparent;
-  transition: background-color 120ms ease;
+  background: var(--accent);
+  transform: scaleX(0.35);
+  transform-origin: left center;
+  opacity: 0;
+  transition:
+    opacity var(--dur-fast) var(--ease),
+    transform var(--dur-med) var(--ease);
 }
 
 .site-nav a:hover::after,
 .site-nav a[aria-current="page"]::after {
-  background: var(--accent);
+  transform: scaleX(1);
+  opacity: 1;
 }
 
 .site-nav a[aria-current="page"] {
@@ -181,6 +203,10 @@ main {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 18px;
+  transition:
+    border-color var(--dur-med) var(--ease),
+    box-shadow var(--dur-med) var(--ease),
+    transform var(--dur-med) var(--ease);
 }
 
 .card {
@@ -197,6 +223,22 @@ main {
   height: 3px;
   border-radius: 0 0 2px 2px;
   background: var(--accent);
+  transition: width var(--dur-med) var(--ease), opacity var(--dur-fast) var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: #cfd7e2;
+  box-shadow: 0 8px 18px rgba(15, 27, 41, 0.06);
+}
+
+.card:hover::before {
+  width: 58px;
+}
+
+.panel:hover {
+  border-color: #d2dbe5;
+  box-shadow: 0 5px 14px rgba(15, 27, 41, 0.04);
 }
 
 .card h2,
@@ -262,6 +304,16 @@ main {
   font-size: 0.83rem;
   color: #7a1f1f;
   background: #fff9f9;
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    background-color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.tag:hover {
+  border-color: #e8b3b3;
+  background: #fff5f5;
+  transform: translateY(-1px);
 }
 
 .note {
@@ -308,5 +360,15 @@ main {
 
   .page-intro::after {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }
