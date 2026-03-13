@@ -183,7 +183,7 @@ main {
 
 .home-title {
   margin: 0;
-  font-size: clamp(2rem, 4.45vw, 4rem);
+  font-size: clamp(1.6rem, 3.56vw, 3.2rem);
   line-height: 1.18;
   letter-spacing: -0.02em;
   color: #102037;
@@ -194,7 +194,7 @@ main {
 .home-subtitle {
   margin: 62px auto 0;
   max-width: 39ch;
-  font-size: clamp(1.2rem, 2.25vw, 1.95rem);
+  font-size: clamp(0.96rem, 1.8vw, 1.56rem);
   line-height: 1.37;
   color: #4f6380;
   animation: home-fade-up 980ms var(--ease) both;
