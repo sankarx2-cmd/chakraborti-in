@@ -6,6 +6,17 @@
     return;
   }
 
+  function getApiOrigin() {
+    var protocol = window.location && window.location.protocol ? window.location.protocol : "https:";
+    var host = window.location && window.location.hostname ? window.location.hostname : "";
+    if (host.indexOf("www.") === 0) {
+      return protocol + "//" + host.slice(4);
+    }
+    return window.location && window.location.origin ? window.location.origin : "";
+  }
+
+  var apiOrigin = getApiOrigin();
+
   function applyLikeCount(card, likes) {
     var indicator = card.querySelector("[data-story-like-indicator]");
     var countEl = card.querySelector("[data-story-like-count]");
@@ -30,7 +41,7 @@
       return;
     }
 
-    var response = await fetch("/api/stories?ids=" + encodeURIComponent(ids.join(",")), {
+    var response = await fetch(apiOrigin + "/api/stories?ids=" + encodeURIComponent(ids.join(",")), {
       method: "GET",
       headers: {
         "Accept": "application/json"

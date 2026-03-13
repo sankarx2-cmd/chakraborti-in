@@ -34,7 +34,16 @@
     return;
   }
 
-  var apiBase = "/api/story/" + encodeURIComponent(storyId);
+  function getApiOrigin() {
+    var protocol = window.location && window.location.protocol ? window.location.protocol : "https:";
+    var host = window.location && window.location.hostname ? window.location.hostname : "";
+    if (host.indexOf("www.") === 0) {
+      return protocol + "//" + host.slice(4);
+    }
+    return window.location && window.location.origin ? window.location.origin : "";
+  }
+
+  var apiBase = getApiOrigin() + "/api/story/" + encodeURIComponent(storyId);
   var deviceIdKey = "chakraborti_story_device_id_v1";
   var currentChallengeAnswer = 0;
   var state = {
@@ -174,14 +183,20 @@
   }
 
   async function parseJsonResponse(response) {
+    var contentType = (response.headers.get("content-type") || "").toLowerCase();
     var text = await response.text();
     if (!text) {
       return {};
     }
+
+    if (contentType.indexOf("application/json") === -1) {
+      throw new Error("API route is not configured yet. Please check Cloudflare Worker route for /api/*.");
+    }
+
     try {
       return JSON.parse(text);
     } catch (err) {
-      throw new Error("Invalid server response");
+      throw new Error("API returned unreadable JSON.");
     }
   }
 

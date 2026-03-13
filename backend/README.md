@@ -23,6 +23,8 @@ This backend makes likes and comments shared across all computers.
 8. Add Worker routes (Triggers):
    - `chakraborti.in/api/*`
    - `www.chakraborti.in/api/*`
+9. In Cloudflare **DNS**, make sure both `@` and `www` records are **Proxied** (orange cloud).
+   - If records are DNS-only (grey cloud), requests go directly to GitHub Pages and `/api/*` will not hit Worker.
 
 ## Quick test
 
@@ -32,6 +34,8 @@ Open these in browser:
 - `https://www.chakraborti.in/api/health`
 
 Both should return JSON: `{ "ok": true }`.
+
+If you get GitHub 404 HTML instead of JSON, Worker route or DNS proxy is not set correctly yet.
 
 ## After deploying backend
 
