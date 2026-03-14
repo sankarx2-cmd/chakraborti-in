@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brandname · Stories · Chakraborti</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=19" />
+  </head>
+  <body data-story-id="brandname">
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="/">
+          <img class="brand-logo" src="/chakraborti-logo.png" alt="Chakraborti" />
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="/family/">About Us</a>
+          <a aria-current="page" href="/stories/">Our Stories</a>
+          <a href="/memoirs/">Research &amp; Articles</a>
+          <a href="/apps/">Apps &amp; Tools</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="panel story-reader-head">
+          <h1 class="page-title story-title-small">Brandname</h1>
+          <p class="page-subtitle">What's in a name? A lot actually.</p>
+          <p class="link-row"><a class="story-open" href="/stories/">← Back to story library</a></p>
+        </section>
+
+        <article class="panel story-article">
+          <p>There is a lot of pride in the logo appearing in this photo (and the people too). Let me share its story.</p>
+          <p>We decided to separate our SME Rating business from the bond rating business in 2018. Incidentally around the same time SEBI actually manadated all rating agencies to segregate their non-regulated businesses. Thats how our quest for a new name began.</p>
+          <p>The team set forth with a few rules. The name should begin with the alphabet A (B, C, and I were already taken by others). And it should mean something. Not a mere acronym.</p>
+          <p>After a lot of serious and some funny ideas, we settled with the word "Acuity". Acuity means sharpness of vision. To deliver high quality ratings to investors the analysts need to be empowered with criteria and models that has the power to "see" the credit and its future clearly. So it just felt like so apt.</p>
+          <p>But we discovered that there are 52 other companies in India with the name Acuity. Too big a crowd. This is when our then chairman, Mr. Bindra suggested, "why not consider the french equivalent of the word i.e. Acuite". That's how the name was derived. The "y" is replaced by "e" which is called "acute-e". The same e that appears at the end of Nestle, pronunced as 'a'.</p>
+          <p>Funnily this became a conversation starter as almost everyone failed to get the pronunciation right. Sometimes it sounded like ekuit, sometimes a-cute and everything in between. So we would correct them, "a-qui-teh". If we failed to explain we would give up saying, "you may just call us Acuity, its the same thing".</p>
+          <p>Trust me, its better than my early CRISIL days, when correcting people that its not CrySeal, or Crystal (no idea why people said it like that) was part of my icebreaking ritual, giving me an opportunity to explain the meaning of CRISIL's logo at that time.</p>
+          <p>So as the name was settled, we needed a logo. A classy, minimalistic, sleek logo that reflects a tech enabled, investor focused company. After a lot of iterations, we settled with this. The nice touch was the tick above e. It was turned into a fan with 6 colours. Each colour represents a forward looking rating opinion (AAA, AA, A, BBB, BB, B). The AAA is of green colour and its placed away from the others reflecting the exceptional stature of AAA companies.</p>
+          <p>After 8 years, this logo is highly recognisable, almost all bankers can recognise it. But a logo is just the begining. We promise that investors and lenders can trust everything that is represented by this logo.</p>
+          <p>Act</p>
+        </article>
+
+        <section class="panel story-engagement" aria-label="Story likes">
+          <h2>Like this story</h2>
+          <button id="like-button" class="like-button" type="button" aria-pressed="false">👍 Like</button>
+          <p id="like-count" class="like-count">0 likes</p>
+        </section>
+
+        <section class="panel story-comment-form" aria-label="Add a comment">
+          <h2>Leave a comment</h2>
+          <form id="comment-form" class="comment-form" novalidate>
+            <label for="commenter-name">Your name</label>
+            <input
+              id="commenter-name"
+              class="comment-input"
+              name="commenter-name"
+              type="text"
+              maxlength="80"
+              autocomplete="name"
+              required
+            />
+
+            <label for="comment-text">Your comment</label>
+            <textarea
+              id="comment-text"
+              class="comment-textarea"
+              name="comment-text"
+              rows="4"
+              maxlength="3000"
+              required
+            ></textarea>
+
+            <div class="comment-challenge">
+              <label id="comment-challenge-label" for="comment-challenge-answer">Human check</label>
+              <div class="comment-challenge-controls">
+                <input
+                  id="comment-challenge-answer"
+                  class="comment-input comment-challenge-input"
+                  name="comment-challenge-answer"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  required
+                />
+                <button
+                  id="comment-challenge-refresh"
+                  class="comment-challenge-refresh"
+                  type="button"
+                  aria-label="Generate a new challenge"
+                >↻</button>
+              </div>
+            </div>
+
+            <button class="comment-submit" type="submit">Post comment</button>
+          </form>
+          <p id="comment-feedback" class="note comment-feedback" aria-live="polite"></p>
+        </section>
+
+        <section class="panel story-comments" aria-label="Comments">
+          <h2>Comments</h2>
+          <div id="comments-list" class="comments-list"></div>
+          <p id="comments-empty" class="note">No comments yet. Be the first to comment.</p>
+        </section>
+
+        <section class="story-article-nav" aria-label="Story navigation">
+          <a class="story-open" href="/stories/">All stories</a>
+          <span class="note">Next story coming soon</span>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">© Chakraborti Family, 2026 | We do not collect any data.</div>
+    </footer>
+    <script src="/assets/js/story-interactions.js?v=5" defer></script>
+  </body>
+</html>
