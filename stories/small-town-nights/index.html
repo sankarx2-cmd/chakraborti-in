@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Small Town Nights · Stories · Chakraborti</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=19" />
+  </head>
+  <body data-story-id="small-town-nights">
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="/">
+          <img class="brand-logo" src="/chakraborti-logo.png" alt="Chakraborti" />
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="/family/">About Us</a>
+          <a aria-current="page" href="/stories/">Our Stories</a>
+          <a href="/memoirs/">Research &amp; Articles</a>
+          <a href="/apps/">Apps &amp; Tools</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="panel story-reader-head">
+          <h1 class="page-title story-title-small">Small Town Nights</h1>
+          <p class="page-subtitle">Not easy, but fun</p>
+          <p class="link-row"><a class="story-open" href="/stories/">← Back to story library</a></p>
+        </section>
+
+        <article class="panel story-article">
+          <p>If you grew up in a small town in the '70s and '80s you are familiar with the concept of "load shedding". Basically a power cut because the electricity grid could not support the high demand.</p>
+          <p>Now today in Mumbai, if power goes for a few minutes we would get impatient. But in those days when we were in school a power cut at night was super fun.</p>
+          <p>First, power cut meant no studies. If we had an exam the next day, maybe mom will light a kerosene lamp. But otherwise no studies. So we would pray that the power cut stays forever.</p>
+          <p>Then, if it was summer, me and all my cousins - 5 of us - and all the elders too would go to the rooftop. Because, without a fan it was impossible to stand the heat.</p>
+          <p>Now, you have to picture this, the whole neighbourhood is dark and there is no light pollution. The sky is clear. And you can see throusands of stars.</p>
+          <p>So we will lie on our back and count stars. My grandpa was a teacher and his subject was geography. So he was familar with the night sky. And he would tell us about the stars. How to find out the pole star, great bear, orion constellation and so on.</p>
+          <p>It was more interesting that he mostly used the Indian names of these stars. Dhruvatara, Atri, Angira, Pulasthya, Pulaha, Kratu etc etc.</p>
+          <p>And then if power still didnt come back, these evenings would eventually become story telling sessions. My granny was a master storyteller. Unlike my grandpa, she never went to college, yet she had a never ending stock of stories.</p>
+          <p>And sometimes, because the power supply company was evil and had no sense of humour, power will come back in the middle of a story. And all of us would scream in frustration.</p>
+          <p>Today when I returned home thanks to the power cut of few minutes all the nostalgia came back.</p>
+        </article>
+
+        <section class="panel story-engagement" aria-label="Story likes">
+          <h2>Like this story</h2>
+          <button id="like-button" class="like-button" type="button" aria-pressed="false">👍 Like</button>
+          <p id="like-count" class="like-count">0 likes</p>
+        </section>
+
+        <section class="panel story-comment-form" aria-label="Add a comment">
+          <h2>Leave a comment</h2>
+          <form id="comment-form" class="comment-form" novalidate>
+            <label for="commenter-name">Your name</label>
+            <input
+              id="commenter-name"
+              class="comment-input"
+              name="commenter-name"
+              type="text"
+              maxlength="80"
+              autocomplete="name"
+              required
+            />
+
+            <label for="comment-text">Your comment</label>
+            <textarea
+              id="comment-text"
+              class="comment-textarea"
+              name="comment-text"
+              rows="4"
+              maxlength="3000"
+              required
+            ></textarea>
+
+            <div class="comment-challenge">
+              <label id="comment-challenge-label" for="comment-challenge-answer">Human check</label>
+              <div class="comment-challenge-controls">
+                <input
+                  id="comment-challenge-answer"
+                  class="comment-input comment-challenge-input"
+                  name="comment-challenge-answer"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  required
+                />
+                <button
+                  id="comment-challenge-refresh"
+                  class="comment-challenge-refresh"
+                  type="button"
+                  aria-label="Generate a new challenge"
+                >↻</button>
+              </div>
+            </div>
+
+            <button class="comment-submit" type="submit">Post comment</button>
+          </form>
+          <p id="comment-feedback" class="note comment-feedback" aria-live="polite"></p>
+        </section>
+
+        <section class="panel story-comments" aria-label="Comments">
+          <h2>Comments</h2>
+          <div id="comments-list" class="comments-list"></div>
+          <p id="comments-empty" class="note">No comments yet. Be the first to comment.</p>
+        </section>
+
+        <section class="story-article-nav" aria-label="Story navigation">
+          <a class="story-open" href="/stories/">All stories</a>
+          <span class="note">Next story coming soon</span>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">© Chakraborti Family, 2026 | We do not collect any data.</div>
+    </footer>
+    <script src="/assets/js/story-interactions.js?v=5" defer></script>
+  </body>
+</html>
