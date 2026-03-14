@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Antyakshari · Stories · Chakraborti</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=19" />
+  </head>
+  <body data-story-id="antyakshari">
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="/">
+          <img class="brand-logo" src="/chakraborti-logo.png" alt="Chakraborti" />
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="/family/">About Us</a>
+          <a aria-current="page" href="/stories/">Our Stories</a>
+          <a href="/memoirs/">Research &amp; Articles</a>
+          <a href="/apps/">Apps &amp; Tools</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="panel story-reader-head">
+          <h1 class="page-title story-title-small">Antyakshari</h1>
+          <p class="page-subtitle">A musical game with a twist</p>
+          <p class="link-row"><a class="story-open" href="/stories/">← Back to story library</a></p>
+        </section>
+
+        <article class="panel story-article">
+          <p>I have two kids and have been dealing with schools in Mumbai for the last 22 years. Also my wife is a teacher. Without going into the details, lets just say that there is not much to talk about the education system here thats meant for the privileged.</p>
+          <p>So when I was invited to be the chief guest of the annual day at Shri P R Jain Kanyashala Trust, I was reluctant. Firstly, such programs are boring most of the time. Secondly, the audience usually are basically parents who only think of IIT and NEET coaching and not much else. And finally, sometimes they ask me to give a speech which is not my strength. I suffer from glossophobia (fear of speaking on stage).</p>
+          <p>But I did accept the invitation as Acuite Board approved a proposal to sponsor a few children's school fees. And it was such a nice experience that I felt I should have taken my family members as well.</p>
+          <p>This is a girls only school. The girls come from underprivileged, broken or slumdwelling families. I was shocked to find teachers so passionate about their work at this school. Its such a relief to know that such teachers still exist. Teachers who care about the children so much that sometimes they go out to raise funds or go to the student's home just to ensure that they dont drop out.</p>
+          <p>The highlight of the event was an antyakshari with a twist. It wasnt bollywood songs that they would sing. Instead they sang the slokas (hymns) from Bhagavad Gita. It was 3 teams of 10 members each from 8th to 10th standards. And what a close fight it was. These 30 kids have all the 700 slokas by heart alongwith their interpretations.</p>
+          <p>If this is not extraordinary I dont know what is. The english medium schools charging a couple of lakhs in annual fees should introspect about their vision, mission and values.</p>
+          <p>I dont know what a chief guest like me can say in his speech to kids who have internalised Bhagavad Gita.</p>
+        </article>
+
+        <section class="panel story-engagement" aria-label="Story likes">
+          <h2>Like this story</h2>
+          <button id="like-button" class="like-button" type="button" aria-pressed="false">👍 Like</button>
+          <p id="like-count" class="like-count">0 likes</p>
+        </section>
+
+        <section class="panel story-comment-form" aria-label="Add a comment">
+          <h2>Leave a comment</h2>
+          <form id="comment-form" class="comment-form" novalidate>
+            <label for="commenter-name">Your name</label>
+            <input
+              id="commenter-name"
+              class="comment-input"
+              name="commenter-name"
+              type="text"
+              maxlength="80"
+              autocomplete="name"
+              required
+            />
+
+            <label for="comment-text">Your comment</label>
+            <textarea
+              id="comment-text"
+              class="comment-textarea"
+              name="comment-text"
+              rows="4"
+              maxlength="3000"
+              required
+            ></textarea>
+
+            <div class="comment-challenge">
+              <label id="comment-challenge-label" for="comment-challenge-answer">Human check</label>
+              <div class="comment-challenge-controls">
+                <input
+                  id="comment-challenge-answer"
+                  class="comment-input comment-challenge-input"
+                  name="comment-challenge-answer"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  required
+                />
+                <button
+                  id="comment-challenge-refresh"
+                  class="comment-challenge-refresh"
+                  type="button"
+                  aria-label="Generate a new challenge"
+                >↻</button>
+              </div>
+            </div>
+
+            <button class="comment-submit" type="submit">Post comment</button>
+          </form>
+          <p id="comment-feedback" class="note comment-feedback" aria-live="polite"></p>
+        </section>
+
+        <section class="panel story-comments" aria-label="Comments">
+          <h2>Comments</h2>
+          <div id="comments-list" class="comments-list"></div>
+          <p id="comments-empty" class="note">No comments yet. Be the first to comment.</p>
+        </section>
+
+        <section class="story-article-nav" aria-label="Story navigation">
+          <a class="story-open" href="/stories/">All stories</a>
+          <span class="note">Next story coming soon</span>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">© Chakraborti Family, 2026 | We do not collect any data.</div>
+    </footer>
+    <script src="/assets/js/story-interactions.js?v=5" defer></script>
+  </body>
+</html>
