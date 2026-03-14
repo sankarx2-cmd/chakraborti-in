@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doggy-bhai · Stories · Chakraborti</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=19" />
+  </head>
+  <body data-story-id="doggy-bhai">
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="/">
+          <img class="brand-logo" src="/chakraborti-logo.png" alt="Chakraborti" />
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="/family/">About Us</a>
+          <a aria-current="page" href="/stories/">Our Stories</a>
+          <a href="/memoirs/">Research &amp; Articles</a>
+          <a href="/apps/">Apps &amp; Tools</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="panel story-reader-head">
+          <h1 class="page-title story-title-small">Doggy-bhai</h1>
+          <p class="page-subtitle">A dogs life is not so bad</p>
+          <p class="link-row"><a class="story-open" href="/stories/">← Back to story library</a></p>
+        </section>
+
+        <article class="panel story-article">
+          <p>If you remove all the undesirable qualities of a human, ...insecurity, anxiety, rat race etc. ... what do you get?</p>
+          <p>You get a dog.</p>
+          <p>Its amazing how these animals develop a friendship with us humans. Around my house there are many shops. And most of the shops have adopted one or two dogs (or is it other way round?). The owners of the shops dont know how or when the dogs ended up being part of their life.</p>
+          <p>All these dogs have character. They like things and dislike things. In the list of dislikes right on top are self assured cats and bikes without silencers. Thats universal.</p>
+          <p>But their list of likes can be quite a range.</p>
+          <p>There is this dog who has adopted a falooda kiosk near the railway station. Whenever any customer comes and orders a falooda or ice cream, this chap appears and gives his best puppy eyed look. And who can handle this much cuteness! So very often the customer orders for him as well.</p>
+          <p>Interesting thing is he has his strict preference for badam milk!!! He doesnt want anything else, and owner of the kiosk knows this. 20 rupees ka badam milk is it for him, always.</p>
+          <p>There is this other dog, who has adopted a kirana store. We call him Bruno. A totally chill guy. If you give him food, biscuits or milk, he doesnt show any emotion. He just wants you to pet him. And if you take your hands away, he will pull your hand with a paw and say dont stop, pet me more.</p>
+          <p>A few minutes with such friends can be totally refreshing.</p>
+        </article>
+
+        <section class="panel story-engagement" aria-label="Story likes">
+          <h2>Like this story</h2>
+          <button id="like-button" class="like-button" type="button" aria-pressed="false">👍 Like</button>
+          <p id="like-count" class="like-count">0 likes</p>
+        </section>
+
+        <section class="panel story-comment-form" aria-label="Add a comment">
+          <h2>Leave a comment</h2>
+          <form id="comment-form" class="comment-form" novalidate>
+            <label for="commenter-name">Your name</label>
+            <input
+              id="commenter-name"
+              class="comment-input"
+              name="commenter-name"
+              type="text"
+              maxlength="80"
+              autocomplete="name"
+              required
+            />
+
+            <label for="comment-text">Your comment</label>
+            <textarea
+              id="comment-text"
+              class="comment-textarea"
+              name="comment-text"
+              rows="4"
+              maxlength="3000"
+              required
+            ></textarea>
+
+            <div class="comment-challenge">
+              <label id="comment-challenge-label" for="comment-challenge-answer">Human check</label>
+              <div class="comment-challenge-controls">
+                <input
+                  id="comment-challenge-answer"
+                  class="comment-input comment-challenge-input"
+                  name="comment-challenge-answer"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  required
+                />
+                <button
+                  id="comment-challenge-refresh"
+                  class="comment-challenge-refresh"
+                  type="button"
+                  aria-label="Generate a new challenge"
+                >↻</button>
+              </div>
+            </div>
+
+            <button class="comment-submit" type="submit">Post comment</button>
+          </form>
+          <p id="comment-feedback" class="note comment-feedback" aria-live="polite"></p>
+        </section>
+
+        <section class="panel story-comments" aria-label="Comments">
+          <h2>Comments</h2>
+          <div id="comments-list" class="comments-list"></div>
+          <p id="comments-empty" class="note">No comments yet. Be the first to comment.</p>
+        </section>
+
+        <section class="story-article-nav" aria-label="Story navigation">
+          <a class="story-open" href="/stories/">All stories</a>
+          <span class="note">Next story coming soon</span>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">© Chakraborti Family, 2026 | We do not collect any data.</div>
+    </footer>
+    <script src="/assets/js/story-interactions.js?v=5" defer></script>
+  </body>
+</html>
