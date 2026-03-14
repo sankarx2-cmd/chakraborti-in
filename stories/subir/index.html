@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subir · Stories · Chakraborti</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=19" />
+  </head>
+  <body data-story-id="subir">
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="/">
+          <img class="brand-logo" src="/chakraborti-logo.png" alt="Chakraborti" />
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="/family/">About Us</a>
+          <a aria-current="page" href="/stories/">Our Stories</a>
+          <a href="/memoirs/">Research &amp; Articles</a>
+          <a href="/apps/">Apps &amp; Tools</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="panel story-reader-head">
+          <h1 class="page-title story-title-small">Subir</h1>
+          <p class="page-subtitle">Someone I will miss for a long time</p>
+          <p class="link-row"><a class="story-open" href="/stories/">← Back to story library</a></p>
+        </section>
+
+        <article class="panel story-article">
+          <p>In my career of 3 decades, I reported to 15 bosses. A very charismatic lot. Several were Deputy Governors of RBI, or Whole Time Members of SEBI. Only a couple of them were 'difficult', but I had to endure them for just a few months. No big deal. Rest were not just brilliant minds, but great human beings too. But that's the story for another day.</p>
+          <p>This story is about one of my four skip level bosses. I was lucky to have 2 of them who were mavericks. One was Dr. Subir Gokarn. While Subir was my super-boss, we worked very closely. We travelled a lot, prepared and delivered presentations to clients. I miss those days as much as I miss Subir. He ended up being a friend despite the difference in intellectual capabilities and age.</p>
+          <p>Subir's presence was very imposing. Large build and a mane made his appearance like a kind lion. But once you get to know him you realize that his heart is bigger than his appearance. I don't know anyone who knows Subir and didn't feel his charm.</p>
+          <p>Subir had a unique sense of humor. Very witty, a little mischievous, he wont mind pulling your leg but in a kind way. And even in the most serious meetings he can pull off one liners with poker face. At one such meeting, a decade back, when he was presenting an IMF report on AI and machine learning, someone from the audience asked him which professions would face the heat from AI. Pat came his reply, 'economists'! The audience took a second to absorb it, because he said it with a straight face. And then the hall burst into laughter.</p>
+          <p>At another meeting, someone asked about his long-term view on economy at a time when things were not all great. And with the comic timing of Utpal Dutt he quoted Keynes, 'well in the long term we are all dead'!</p>
+          <p>They say good sense of humor is a sure sign of intelligence. Subir is a proof of that. But with that kind of intelligence, it's not easy to find humility. During the long flights I would take the middle seats just to trouble him with my stupid questions about the economy. He never showed impatience or made me feel less in any way. In fact, he always asked for my views.</p>
+          <p>He loved his daughter very much. Once at Seoul, after the meetings got over, he said he wants to buy a Ben-10 toy for his daughter. And we went looking for a toy shop. After hopping several shopping centers, we could not find any. Korea even in those days didn't have enough kids for shopping malls to have toy shops. This simple experience became a lesson in economics.</p>
+          <p>His love for food was legendary. He was from Gokarna, a sea-side hamlet town. So naturally he was a fish lover. Good food and a good 'adda' made us look forward to his visits.</p>
+          <p>I think what made him a great economist was the fact that his keen observational power was as good as his ability to dissect data. He would ask ordinary people like us about our opinion, notice how people behave and ask them about their experiences.</p>
+          <p>Good super bosses are not mythical creatures. Subir is proof of that.</p>
+        </article>
+
+        <section class="panel story-engagement" aria-label="Story likes">
+          <h2>Like this story</h2>
+          <button id="like-button" class="like-button" type="button" aria-pressed="false">👍 Like</button>
+          <p id="like-count" class="like-count">0 likes</p>
+        </section>
+
+        <section class="panel story-comment-form" aria-label="Add a comment">
+          <h2>Leave a comment</h2>
+          <form id="comment-form" class="comment-form" novalidate>
+            <label for="commenter-name">Your name</label>
+            <input
+              id="commenter-name"
+              class="comment-input"
+              name="commenter-name"
+              type="text"
+              maxlength="80"
+              autocomplete="name"
+              required
+            />
+
+            <label for="comment-text">Your comment</label>
+            <textarea
+              id="comment-text"
+              class="comment-textarea"
+              name="comment-text"
+              rows="4"
+              maxlength="3000"
+              required
+            ></textarea>
+
+            <div class="comment-challenge">
+              <label id="comment-challenge-label" for="comment-challenge-answer">Human check</label>
+              <div class="comment-challenge-controls">
+                <input
+                  id="comment-challenge-answer"
+                  class="comment-input comment-challenge-input"
+                  name="comment-challenge-answer"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  required
+                />
+                <button
+                  id="comment-challenge-refresh"
+                  class="comment-challenge-refresh"
+                  type="button"
+                  aria-label="Generate a new challenge"
+                >↻</button>
+              </div>
+            </div>
+
+            <button class="comment-submit" type="submit">Post comment</button>
+          </form>
+          <p id="comment-feedback" class="note comment-feedback" aria-live="polite"></p>
+        </section>
+
+        <section class="panel story-comments" aria-label="Comments">
+          <h2>Comments</h2>
+          <div id="comments-list" class="comments-list"></div>
+          <p id="comments-empty" class="note">No comments yet. Be the first to comment.</p>
+        </section>
+
+        <section class="story-article-nav" aria-label="Story navigation">
+          <a class="story-open" href="/stories/">All stories</a>
+          <span class="note">Next story coming soon</span>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">© Chakraborti Family, 2026 | We do not collect any data.</div>
+    </footer>
+    <script src="/assets/js/story-interactions.js?v=5" defer></script>
+  </body>
+</html>
