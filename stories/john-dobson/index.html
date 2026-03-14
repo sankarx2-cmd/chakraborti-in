@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>John Dobson · Stories · Chakraborti</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=19" />
+  </head>
+  <body data-story-id="john-dobson">
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="/">
+          <img class="brand-logo" src="/chakraborti-logo.png" alt="Chakraborti" />
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="/family/">About Us</a>
+          <a aria-current="page" href="/stories/">Our Stories</a>
+          <a href="/memoirs/">Research &amp; Articles</a>
+          <a href="/apps/">Apps &amp; Tools</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="panel story-reader-head">
+          <h1 class="page-title story-title-small">John Dobson</h1>
+          <p class="page-subtitle">Someone who knew the stars</p>
+          <p class="link-row"><a class="story-open" href="/stories/">← Back to story library</a></p>
+        </section>
+
+        <article class="panel story-article">
+          <p>When I was 12, I was sent to a boarding school. At 12 becoming a hostel kid overnight is tough. But small things and nice people made this transition go not too badly for me.</p>
+          <p>One such person was Mr John Dobson, an astronomer (of Dobsonian telescope fame). And one such thing was a telescope he built for us.</p>
+          <p>Mr Dobson, in the 70s, got attracted to vedanta philosophy and became a monk. During those days he extensively travelled India. That made him land up at our school for a few months when he built this large telescope. Our school was at a godforsaken place where the night sky was clear like fountain water. So skywatching was great fun.</p>
+          <p>With his help, seeing Jupitar, Saturn, Andromeda, Mars and of course moon was enough to kindle a level of imagination that I wasnt aware I am capable of. I remember feeling very special when he told us that we are all made of stardust. Except the hydrogen atoms every other element in our body came from a star!!!</p>
+          <p>He went back to San Francisco and dedicated his entire life to introduce young kids to skywatching. Sidewalk Astronomers he called it. He was an Indiaphile. In his article he praised the sustainable way of living of Indians way back in 1980s when ESG term was yet to be coined.</p>
+          <p>He patented Dobsonian telescopes, a cheap way to build telescopes which became very popular. But his contribution really was introducing thousands of kids to the mystery of the space.</p>
+          <p>Tributes to a great teacher, an early advocate of sustainability and a friend of India. Below is an essay by him from the 80s thats worth reading.</p>
+        </article>
+
+        <section class="panel story-engagement" aria-label="Story likes">
+          <h2>Like this story</h2>
+          <button id="like-button" class="like-button" type="button" aria-pressed="false">👍 Like</button>
+          <p id="like-count" class="like-count">0 likes</p>
+        </section>
+
+        <section class="panel story-comment-form" aria-label="Add a comment">
+          <h2>Leave a comment</h2>
+          <form id="comment-form" class="comment-form" novalidate>
+            <label for="commenter-name">Your name</label>
+            <input
+              id="commenter-name"
+              class="comment-input"
+              name="commenter-name"
+              type="text"
+              maxlength="80"
+              autocomplete="name"
+              required
+            />
+
+            <label for="comment-text">Your comment</label>
+            <textarea
+              id="comment-text"
+              class="comment-textarea"
+              name="comment-text"
+              rows="4"
+              maxlength="3000"
+              required
+            ></textarea>
+
+            <div class="comment-challenge">
+              <label id="comment-challenge-label" for="comment-challenge-answer">Human check</label>
+              <div class="comment-challenge-controls">
+                <input
+                  id="comment-challenge-answer"
+                  class="comment-input comment-challenge-input"
+                  name="comment-challenge-answer"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  required
+                />
+                <button
+                  id="comment-challenge-refresh"
+                  class="comment-challenge-refresh"
+                  type="button"
+                  aria-label="Generate a new challenge"
+                >↻</button>
+              </div>
+            </div>
+
+            <button class="comment-submit" type="submit">Post comment</button>
+          </form>
+          <p id="comment-feedback" class="note comment-feedback" aria-live="polite"></p>
+        </section>
+
+        <section class="panel story-comments" aria-label="Comments">
+          <h2>Comments</h2>
+          <div id="comments-list" class="comments-list"></div>
+          <p id="comments-empty" class="note">No comments yet. Be the first to comment.</p>
+        </section>
+
+        <section class="story-article-nav" aria-label="Story navigation">
+          <a class="story-open" href="/stories/">All stories</a>
+          <span class="note">Next story coming soon</span>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">© Chakraborti Family, 2026 | We do not collect any data.</div>
+    </footer>
+    <script src="/assets/js/story-interactions.js?v=5" defer></script>
+  </body>
+</html>
