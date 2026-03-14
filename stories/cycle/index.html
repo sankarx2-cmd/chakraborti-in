@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cycle · Stories · Chakraborti</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=19" />
+  </head>
+  <body data-story-id="cycle">
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="/">
+          <img class="brand-logo" src="/chakraborti-logo.png" alt="Chakraborti" />
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="/family/">About Us</a>
+          <a aria-current="page" href="/stories/">Our Stories</a>
+          <a href="/memoirs/">Research &amp; Articles</a>
+          <a href="/apps/">Apps &amp; Tools</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="panel story-reader-head">
+          <h1 class="page-title story-title-small">Cycle</h1>
+          <p class="page-subtitle">More than a mode of transport</p>
+          <p class="link-row"><a class="story-open" href="/stories/">← Back to story library</a></p>
+        </section>
+
+        <article class="panel story-article">
+          <p>When I returned from the boarding school after my 10th, I promised I will never leave my hometown ever again. It is a small industrial town. Highly cosmopolitan. A nice place to live if you are generally content with your life. My dad was an employee of Indian Railways there.</p>
+          <p>In our town, public transport wasnt reliable. So you needed either a cycle or a scooter to go to school and run errands. Many other kids' dads had Bajaj or Vespa scooters. I considered them very lucky as sometimes they would ride the scooter. I learnt riding scooters and motorcycles thanks to them.</p>
+          <p>But my dad's vahaan was an old Raleigh cycle which was his wedding gift. It is this cycle that kept him fighting fit till he was 77 year old. The factory where this cycle was produced was in our town. And my uncle used to work there. So my dad thought a Raleigh cycle is better than a Bajaj.</p>
+          <p>When I needed a cycle, his friend let him borrow another used Raleigh cycle. I threw a lot of tantrum that day and demanded a new cycle. For several months I was eying a new model. It was expensive at 1000 bucks. A maroon BSA SLR with white sidewall tires and a stylish handlebar. I didnt realise it was one third of dad's monthly salary. Finally dad relented. And I got my dream machine.</p>
+          <p>This cycle was my true first love. First thing I did is opened the rear wheel sprocket to see how it transfers power in only one direction. I marvelled at the clever engineering. Every sunday I would clean the cycle, grease the chains and finally apply a little waxpol polish to keep it looking new. I even noted the chasis number just in case someone steals it and I need to file a police complaint. It did get stolen once from university hostel and I did get it back thanks to a police raid at an illegal bar.</p>
+          <p>This cycle was a great companion. My first taste of freedom. Everyday I would go to the railway club library, and then go to meet friends in opposite corners of the town. In the winter I would ride the cycle 20 kms to the riverside to click photographs of migratory birds.</p>
+          <p>Today when I was returning from office I saw a rusted BSA SLR in very bad condition, lying near a cycle repair shop. And in an instant so many memories came up.</p>
+          <p>A cycle is a teenagers best friend.</p>
+        </article>
+
+        <section class="panel story-engagement" aria-label="Story likes">
+          <h2>Like this story</h2>
+          <button id="like-button" class="like-button" type="button" aria-pressed="false">👍 Like</button>
+          <p id="like-count" class="like-count">0 likes</p>
+        </section>
+
+        <section class="panel story-comment-form" aria-label="Add a comment">
+          <h2>Leave a comment</h2>
+          <form id="comment-form" class="comment-form" novalidate>
+            <label for="commenter-name">Your name</label>
+            <input
+              id="commenter-name"
+              class="comment-input"
+              name="commenter-name"
+              type="text"
+              maxlength="80"
+              autocomplete="name"
+              required
+            />
+
+            <label for="comment-text">Your comment</label>
+            <textarea
+              id="comment-text"
+              class="comment-textarea"
+              name="comment-text"
+              rows="4"
+              maxlength="3000"
+              required
+            ></textarea>
+
+            <div class="comment-challenge">
+              <label id="comment-challenge-label" for="comment-challenge-answer">Human check</label>
+              <div class="comment-challenge-controls">
+                <input
+                  id="comment-challenge-answer"
+                  class="comment-input comment-challenge-input"
+                  name="comment-challenge-answer"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  required
+                />
+                <button
+                  id="comment-challenge-refresh"
+                  class="comment-challenge-refresh"
+                  type="button"
+                  aria-label="Generate a new challenge"
+                >↻</button>
+              </div>
+            </div>
+
+            <button class="comment-submit" type="submit">Post comment</button>
+          </form>
+          <p id="comment-feedback" class="note comment-feedback" aria-live="polite"></p>
+        </section>
+
+        <section class="panel story-comments" aria-label="Comments">
+          <h2>Comments</h2>
+          <div id="comments-list" class="comments-list"></div>
+          <p id="comments-empty" class="note">No comments yet. Be the first to comment.</p>
+        </section>
+
+        <section class="story-article-nav" aria-label="Story navigation">
+          <a class="story-open" href="/stories/">All stories</a>
+          <span class="note">Next story coming soon</span>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">© Chakraborti Family, 2026 | We do not collect any data.</div>
+    </footer>
+    <script src="/assets/js/story-interactions.js?v=5" defer></script>
+  </body>
+</html>
